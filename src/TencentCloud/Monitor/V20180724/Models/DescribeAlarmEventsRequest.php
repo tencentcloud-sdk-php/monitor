@@ -18,12 +18,14 @@ namespace TencentCloud\Monitor\V20180724\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeMonitorTypes请求参数结构体
+ * DescribeAlarmEvents请求参数结构体
  *
  * @method string getModule() 获取模块名，固定值 monitor
  * @method void setModule(string $Module) 设置模块名，固定值 monitor
+ * @method string getNamespace() 获取告警策略类型，由 DescribeAllNamespaces 获得，例如 cvm_device
+ * @method void setNamespace(string $Namespace) 设置告警策略类型，由 DescribeAllNamespaces 获得，例如 cvm_device
  */
-class DescribeMonitorTypesRequest extends AbstractModel
+class DescribeAlarmEventsRequest extends AbstractModel
 {
     /**
      * @var string 模块名，固定值 monitor
@@ -31,7 +33,13 @@ class DescribeMonitorTypesRequest extends AbstractModel
     public $Module;
 
     /**
+     * @var string 告警策略类型，由 DescribeAllNamespaces 获得，例如 cvm_device
+     */
+    public $Namespace;
+
+    /**
      * @param string $Module 模块名，固定值 monitor
+     * @param string $Namespace 告警策略类型，由 DescribeAllNamespaces 获得，例如 cvm_device
      */
     function __construct()
     {
@@ -48,6 +56,10 @@ class DescribeMonitorTypesRequest extends AbstractModel
         }
         if (array_key_exists("Module",$param) and $param["Module"] !== null) {
             $this->Module = $param["Module"];
+        }
+
+        if (array_key_exists("Namespace",$param) and $param["Namespace"] !== null) {
+            $this->Namespace = $param["Namespace"];
         }
     }
 }

@@ -18,36 +18,36 @@ namespace TencentCloud\Monitor\V20180724\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * UnBindingAllPolicyObject请求参数结构体
+ * ModifyAlarmPolicyNotice请求参数结构体
  *
- * @method string getModule() 获取固定值，为"monitor"
- * @method void setModule(string $Module) 设置固定值，为"monitor"
- * @method integer getGroupId() 获取策略组id，如传入PolicyId则该字段可传入任意值
- * @method void setGroupId(integer $GroupId) 设置策略组id，如传入PolicyId则该字段可传入任意值
- * @method string getPolicyId() 获取告警策略ID，使用此字段时GroupId可传入任意值
- * @method void setPolicyId(string $PolicyId) 设置告警策略ID，使用此字段时GroupId可传入任意值
+ * @method string getModule() 获取模块名，这里填“monitor”
+ * @method void setModule(string $Module) 设置模块名，这里填“monitor”
+ * @method string getPolicyId() 获取告警策略 ID
+ * @method void setPolicyId(string $PolicyId) 设置告警策略 ID
+ * @method array getNoticeIds() 获取告警通知模板 ID 列表
+ * @method void setNoticeIds(array $NoticeIds) 设置告警通知模板 ID 列表
  */
-class UnBindingAllPolicyObjectRequest extends AbstractModel
+class ModifyAlarmPolicyNoticeRequest extends AbstractModel
 {
     /**
-     * @var string 固定值，为"monitor"
+     * @var string 模块名，这里填“monitor”
      */
     public $Module;
 
     /**
-     * @var integer 策略组id，如传入PolicyId则该字段可传入任意值
-     */
-    public $GroupId;
-
-    /**
-     * @var string 告警策略ID，使用此字段时GroupId可传入任意值
+     * @var string 告警策略 ID
      */
     public $PolicyId;
 
     /**
-     * @param string $Module 固定值，为"monitor"
-     * @param integer $GroupId 策略组id，如传入PolicyId则该字段可传入任意值
-     * @param string $PolicyId 告警策略ID，使用此字段时GroupId可传入任意值
+     * @var array 告警通知模板 ID 列表
+     */
+    public $NoticeIds;
+
+    /**
+     * @param string $Module 模块名，这里填“monitor”
+     * @param string $PolicyId 告警策略 ID
+     * @param array $NoticeIds 告警通知模板 ID 列表
      */
     function __construct()
     {
@@ -66,12 +66,12 @@ class UnBindingAllPolicyObjectRequest extends AbstractModel
             $this->Module = $param["Module"];
         }
 
-        if (array_key_exists("GroupId",$param) and $param["GroupId"] !== null) {
-            $this->GroupId = $param["GroupId"];
-        }
-
         if (array_key_exists("PolicyId",$param) and $param["PolicyId"] !== null) {
             $this->PolicyId = $param["PolicyId"];
+        }
+
+        if (array_key_exists("NoticeIds",$param) and $param["NoticeIds"] !== null) {
+            $this->NoticeIds = $param["NoticeIds"];
         }
     }
 }

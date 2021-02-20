@@ -18,19 +18,40 @@ namespace TencentCloud\Monitor\V20180724\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeMonitorTypes返回参数结构体
+ * DescribeStatisticData返回参数结构体
  *
- * @method array getMonitorTypes() 获取监控类型，云产品监控为 MT_QCE
- * @method void setMonitorTypes(array $MonitorTypes) 设置监控类型，云产品监控为 MT_QCE
+ * @method integer getPeriod() 获取统计周期
+ * @method void setPeriod(integer $Period) 设置统计周期
+ * @method string getStartTime() 获取开始时间
+ * @method void setStartTime(string $StartTime) 设置开始时间
+ * @method string getEndTime() 获取结束时间
+ * @method void setEndTime(string $EndTime) 设置结束时间
+ * @method array getData() 获取监控数据
+ * @method void setData(array $Data) 设置监控数据
  * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
-class DescribeMonitorTypesResponse extends AbstractModel
+class DescribeStatisticDataResponse extends AbstractModel
 {
     /**
-     * @var array 监控类型，云产品监控为 MT_QCE
+     * @var integer 统计周期
      */
-    public $MonitorTypes;
+    public $Period;
+
+    /**
+     * @var string 开始时间
+     */
+    public $StartTime;
+
+    /**
+     * @var string 结束时间
+     */
+    public $EndTime;
+
+    /**
+     * @var array 监控数据
+     */
+    public $Data;
 
     /**
      * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -38,7 +59,10 @@ class DescribeMonitorTypesResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param array $MonitorTypes 监控类型，云产品监控为 MT_QCE
+     * @param integer $Period 统计周期
+     * @param string $StartTime 开始时间
+     * @param string $EndTime 结束时间
+     * @param array $Data 监控数据
      * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -54,8 +78,25 @@ class DescribeMonitorTypesResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("MonitorTypes",$param) and $param["MonitorTypes"] !== null) {
-            $this->MonitorTypes = $param["MonitorTypes"];
+        if (array_key_exists("Period",$param) and $param["Period"] !== null) {
+            $this->Period = $param["Period"];
+        }
+
+        if (array_key_exists("StartTime",$param) and $param["StartTime"] !== null) {
+            $this->StartTime = $param["StartTime"];
+        }
+
+        if (array_key_exists("EndTime",$param) and $param["EndTime"] !== null) {
+            $this->EndTime = $param["EndTime"];
+        }
+
+        if (array_key_exists("Data",$param) and $param["Data"] !== null) {
+            $this->Data = [];
+            foreach ($param["Data"] as $key => $value){
+                $obj = new MetricData();
+                $obj->deserialize($value);
+                array_push($this->Data, $obj);
+            }
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

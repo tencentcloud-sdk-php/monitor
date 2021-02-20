@@ -18,19 +18,26 @@ namespace TencentCloud\Monitor\V20180724\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeMonitorTypes返回参数结构体
+ * DescribeAlarmPolicies返回参数结构体
  *
- * @method array getMonitorTypes() 获取监控类型，云产品监控为 MT_QCE
- * @method void setMonitorTypes(array $MonitorTypes) 设置监控类型，云产品监控为 MT_QCE
+ * @method integer getTotalCount() 获取策略总数
+ * @method void setTotalCount(integer $TotalCount) 设置策略总数
+ * @method array getPolicies() 获取策略数组
+ * @method void setPolicies(array $Policies) 设置策略数组
  * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
-class DescribeMonitorTypesResponse extends AbstractModel
+class DescribeAlarmPoliciesResponse extends AbstractModel
 {
     /**
-     * @var array 监控类型，云产品监控为 MT_QCE
+     * @var integer 策略总数
      */
-    public $MonitorTypes;
+    public $TotalCount;
+
+    /**
+     * @var array 策略数组
+     */
+    public $Policies;
 
     /**
      * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -38,7 +45,8 @@ class DescribeMonitorTypesResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param array $MonitorTypes 监控类型，云产品监控为 MT_QCE
+     * @param integer $TotalCount 策略总数
+     * @param array $Policies 策略数组
      * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -54,8 +62,17 @@ class DescribeMonitorTypesResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("MonitorTypes",$param) and $param["MonitorTypes"] !== null) {
-            $this->MonitorTypes = $param["MonitorTypes"];
+        if (array_key_exists("TotalCount",$param) and $param["TotalCount"] !== null) {
+            $this->TotalCount = $param["TotalCount"];
+        }
+
+        if (array_key_exists("Policies",$param) and $param["Policies"] !== null) {
+            $this->Policies = [];
+            foreach ($param["Policies"] as $key => $value){
+                $obj = new AlarmPolicy();
+                $obj->deserialize($value);
+                array_push($this->Policies, $obj);
+            }
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

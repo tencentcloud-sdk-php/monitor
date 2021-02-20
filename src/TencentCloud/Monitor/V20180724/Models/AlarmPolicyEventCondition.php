@@ -18,20 +18,24 @@ namespace TencentCloud\Monitor\V20180724\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeMonitorTypes请求参数结构体
+ * 告警策略事件触发条件
  *
- * @method string getModule() 获取模块名，固定值 monitor
- * @method void setModule(string $Module) 设置模块名，固定值 monitor
+ * @method array getRules() 获取告警触发条件列表
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setRules(array $Rules) 设置告警触发条件列表
+注意：此字段可能返回 null，表示取不到有效值。
  */
-class DescribeMonitorTypesRequest extends AbstractModel
+class AlarmPolicyEventCondition extends AbstractModel
 {
     /**
-     * @var string 模块名，固定值 monitor
+     * @var array 告警触发条件列表
+注意：此字段可能返回 null，表示取不到有效值。
      */
-    public $Module;
+    public $Rules;
 
     /**
-     * @param string $Module 模块名，固定值 monitor
+     * @param array $Rules 告警触发条件列表
+注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {
@@ -46,8 +50,13 @@ class DescribeMonitorTypesRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Module",$param) and $param["Module"] !== null) {
-            $this->Module = $param["Module"];
+        if (array_key_exists("Rules",$param) and $param["Rules"] !== null) {
+            $this->Rules = [];
+            foreach ($param["Rules"] as $key => $value){
+                $obj = new AlarmPolicyRule();
+                $obj->deserialize($value);
+                array_push($this->Rules, $obj);
+            }
         }
     }
 }

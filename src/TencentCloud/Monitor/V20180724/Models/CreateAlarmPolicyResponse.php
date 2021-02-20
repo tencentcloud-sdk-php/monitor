@@ -18,19 +18,26 @@ namespace TencentCloud\Monitor\V20180724\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeMonitorTypes返回参数结构体
+ * CreateAlarmPolicy返回参数结构体
  *
- * @method array getMonitorTypes() 获取监控类型，云产品监控为 MT_QCE
- * @method void setMonitorTypes(array $MonitorTypes) 设置监控类型，云产品监控为 MT_QCE
+ * @method string getPolicyId() 获取告警策略 ID
+ * @method void setPolicyId(string $PolicyId) 设置告警策略 ID
+ * @method string getOriginId() 获取用于实例、实例组绑定和解绑接口（BindingPolicyObject、UnBindingAllPolicyObject、UnBindingPolicyObject）的策略 ID
+ * @method void setOriginId(string $OriginId) 设置用于实例、实例组绑定和解绑接口（BindingPolicyObject、UnBindingAllPolicyObject、UnBindingPolicyObject）的策略 ID
  * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
-class DescribeMonitorTypesResponse extends AbstractModel
+class CreateAlarmPolicyResponse extends AbstractModel
 {
     /**
-     * @var array 监控类型，云产品监控为 MT_QCE
+     * @var string 告警策略 ID
      */
-    public $MonitorTypes;
+    public $PolicyId;
+
+    /**
+     * @var string 用于实例、实例组绑定和解绑接口（BindingPolicyObject、UnBindingAllPolicyObject、UnBindingPolicyObject）的策略 ID
+     */
+    public $OriginId;
 
     /**
      * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -38,7 +45,8 @@ class DescribeMonitorTypesResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param array $MonitorTypes 监控类型，云产品监控为 MT_QCE
+     * @param string $PolicyId 告警策略 ID
+     * @param string $OriginId 用于实例、实例组绑定和解绑接口（BindingPolicyObject、UnBindingAllPolicyObject、UnBindingPolicyObject）的策略 ID
      * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -54,8 +62,12 @@ class DescribeMonitorTypesResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("MonitorTypes",$param) and $param["MonitorTypes"] !== null) {
-            $this->MonitorTypes = $param["MonitorTypes"];
+        if (array_key_exists("PolicyId",$param) and $param["PolicyId"] !== null) {
+            $this->PolicyId = $param["PolicyId"];
+        }
+
+        if (array_key_exists("OriginId",$param) and $param["OriginId"] !== null) {
+            $this->OriginId = $param["OriginId"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

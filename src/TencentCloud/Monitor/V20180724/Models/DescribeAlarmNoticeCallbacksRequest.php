@@ -18,20 +18,20 @@ namespace TencentCloud\Monitor\V20180724\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeMonitorTypes请求参数结构体
+ * DescribeAlarmNoticeCallbacks请求参数结构体
  *
- * @method string getModule() 获取模块名，固定值 monitor
- * @method void setModule(string $Module) 设置模块名，固定值 monitor
+ * @method string getModule() 获取模块名，这里填“monitor”
+ * @method void setModule(string $Module) 设置模块名，这里填“monitor”
  */
-class DescribeMonitorTypesRequest extends AbstractModel
+class DescribeAlarmNoticeCallbacksRequest extends AbstractModel
 {
     /**
-     * @var string 模块名，固定值 monitor
+     * @var string 模块名，这里填“monitor”
      */
     public $Module;
 
     /**
-     * @param string $Module 模块名，固定值 monitor
+     * @param string $Module 模块名，这里填“monitor”
      */
     function __construct()
     {

@@ -18,20 +18,28 @@ namespace TencentCloud\Monitor\V20180724\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeMonitorTypes请求参数结构体
+ * DescribeMetricData接口出参
  *
- * @method string getModule() 获取模块名，固定值 monitor
- * @method void setModule(string $Module) 设置模块名，固定值 monitor
+ * @method string getMetricName() 获取指标名
+ * @method void setMetricName(string $MetricName) 设置指标名
+ * @method array getPoints() 获取监控数据点
+ * @method void setPoints(array $Points) 设置监控数据点
  */
-class DescribeMonitorTypesRequest extends AbstractModel
+class MetricData extends AbstractModel
 {
     /**
-     * @var string 模块名，固定值 monitor
+     * @var string 指标名
      */
-    public $Module;
+    public $MetricName;
 
     /**
-     * @param string $Module 模块名，固定值 monitor
+     * @var array 监控数据点
+     */
+    public $Points;
+
+    /**
+     * @param string $MetricName 指标名
+     * @param array $Points 监控数据点
      */
     function __construct()
     {
@@ -46,8 +54,17 @@ class DescribeMonitorTypesRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Module",$param) and $param["Module"] !== null) {
-            $this->Module = $param["Module"];
+        if (array_key_exists("MetricName",$param) and $param["MetricName"] !== null) {
+            $this->MetricName = $param["MetricName"];
+        }
+
+        if (array_key_exists("Points",$param) and $param["Points"] !== null) {
+            $this->Points = [];
+            foreach ($param["Points"] as $key => $value){
+                $obj = new MetricDataPoint();
+                $obj->deserialize($value);
+                array_push($this->Points, $obj);
+            }
         }
     }
 }

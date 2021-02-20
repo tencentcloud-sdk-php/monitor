@@ -18,16 +18,16 @@ namespace TencentCloud\Monitor\V20180724\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * UnBindingAllPolicyObject请求参数结构体
+ * DescribeAlarmMetrics请求参数结构体
  *
  * @method string getModule() 获取固定值，为"monitor"
  * @method void setModule(string $Module) 设置固定值，为"monitor"
- * @method integer getGroupId() 获取策略组id，如传入PolicyId则该字段可传入任意值
- * @method void setGroupId(integer $GroupId) 设置策略组id，如传入PolicyId则该字段可传入任意值
- * @method string getPolicyId() 获取告警策略ID，使用此字段时GroupId可传入任意值
- * @method void setPolicyId(string $PolicyId) 设置告警策略ID，使用此字段时GroupId可传入任意值
+ * @method string getMonitorType() 获取监控类型过滤 "MT_QCE"=云产品监控
+ * @method void setMonitorType(string $MonitorType) 设置监控类型过滤 "MT_QCE"=云产品监控
+ * @method string getNamespace() 获取告警策略类型，由 DescribeAllNamespaces 获得，例如 cvm_device
+ * @method void setNamespace(string $Namespace) 设置告警策略类型，由 DescribeAllNamespaces 获得，例如 cvm_device
  */
-class UnBindingAllPolicyObjectRequest extends AbstractModel
+class DescribeAlarmMetricsRequest extends AbstractModel
 {
     /**
      * @var string 固定值，为"monitor"
@@ -35,19 +35,19 @@ class UnBindingAllPolicyObjectRequest extends AbstractModel
     public $Module;
 
     /**
-     * @var integer 策略组id，如传入PolicyId则该字段可传入任意值
+     * @var string 监控类型过滤 "MT_QCE"=云产品监控
      */
-    public $GroupId;
+    public $MonitorType;
 
     /**
-     * @var string 告警策略ID，使用此字段时GroupId可传入任意值
+     * @var string 告警策略类型，由 DescribeAllNamespaces 获得，例如 cvm_device
      */
-    public $PolicyId;
+    public $Namespace;
 
     /**
      * @param string $Module 固定值，为"monitor"
-     * @param integer $GroupId 策略组id，如传入PolicyId则该字段可传入任意值
-     * @param string $PolicyId 告警策略ID，使用此字段时GroupId可传入任意值
+     * @param string $MonitorType 监控类型过滤 "MT_QCE"=云产品监控
+     * @param string $Namespace 告警策略类型，由 DescribeAllNamespaces 获得，例如 cvm_device
      */
     function __construct()
     {
@@ -66,12 +66,12 @@ class UnBindingAllPolicyObjectRequest extends AbstractModel
             $this->Module = $param["Module"];
         }
 
-        if (array_key_exists("GroupId",$param) and $param["GroupId"] !== null) {
-            $this->GroupId = $param["GroupId"];
+        if (array_key_exists("MonitorType",$param) and $param["MonitorType"] !== null) {
+            $this->MonitorType = $param["MonitorType"];
         }
 
-        if (array_key_exists("PolicyId",$param) and $param["PolicyId"] !== null) {
-            $this->PolicyId = $param["PolicyId"];
+        if (array_key_exists("Namespace",$param) and $param["Namespace"] !== null) {
+            $this->Namespace = $param["Namespace"];
         }
     }
 }

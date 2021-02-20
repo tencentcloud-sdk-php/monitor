@@ -18,20 +18,28 @@ namespace TencentCloud\Monitor\V20180724\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeMonitorTypes请求参数结构体
+ * DescribeAlarmNotice请求参数结构体
  *
- * @method string getModule() 获取模块名，固定值 monitor
- * @method void setModule(string $Module) 设置模块名，固定值 monitor
+ * @method string getModule() 获取模块名，这里填“monitor”
+ * @method void setModule(string $Module) 设置模块名，这里填“monitor”
+ * @method string getNoticeId() 获取告警通知模板 id
+ * @method void setNoticeId(string $NoticeId) 设置告警通知模板 id
  */
-class DescribeMonitorTypesRequest extends AbstractModel
+class DescribeAlarmNoticeRequest extends AbstractModel
 {
     /**
-     * @var string 模块名，固定值 monitor
+     * @var string 模块名，这里填“monitor”
      */
     public $Module;
 
     /**
-     * @param string $Module 模块名，固定值 monitor
+     * @var string 告警通知模板 id
+     */
+    public $NoticeId;
+
+    /**
+     * @param string $Module 模块名，这里填“monitor”
+     * @param string $NoticeId 告警通知模板 id
      */
     function __construct()
     {
@@ -48,6 +56,10 @@ class DescribeMonitorTypesRequest extends AbstractModel
         }
         if (array_key_exists("Module",$param) and $param["Module"] !== null) {
             $this->Module = $param["Module"];
+        }
+
+        if (array_key_exists("NoticeId",$param) and $param["NoticeId"] !== null) {
+            $this->NoticeId = $param["NoticeId"];
         }
     }
 }
