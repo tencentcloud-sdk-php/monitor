@@ -18,20 +18,28 @@ namespace TencentCloud\Monitor\V20180724\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * CleanGrafanaInstance请求参数结构体
+ * 维度支持的操作符信息
  *
- * @method string getInstanceId() 获取实例 ID
- * @method void setInstanceId(string $InstanceId) 设置实例 ID
+ * @method string getId() 获取运算符标识
+ * @method void setId(string $Id) 设置运算符标识
+ * @method string getName() 获取运算符展示名
+ * @method void setName(string $Name) 设置运算符展示名
  */
-class CleanGrafanaInstanceRequest extends AbstractModel
+class Operator extends AbstractModel
 {
     /**
-     * @var string 实例 ID
+     * @var string 运算符标识
      */
-    public $InstanceId;
+    public $Id;
 
     /**
-     * @param string $InstanceId 实例 ID
+     * @var string 运算符展示名
+     */
+    public $Name;
+
+    /**
+     * @param string $Id 运算符标识
+     * @param string $Name 运算符展示名
      */
     function __construct()
     {
@@ -46,8 +54,12 @@ class CleanGrafanaInstanceRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("InstanceId",$param) and $param["InstanceId"] !== null) {
-            $this->InstanceId = $param["InstanceId"];
+        if (array_key_exists("Id",$param) and $param["Id"] !== null) {
+            $this->Id = $param["Id"];
+        }
+
+        if (array_key_exists("Name",$param) and $param["Name"] !== null) {
+            $this->Name = $param["Name"];
         }
     }
 }
