@@ -20,18 +20,18 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeGrafanaEnvironments请求参数结构体
  *
- * @method string getInstanceId() 获取Grafana 实例 ID，例如：Grafana 实例 ID，例如：grafana-abcdefghGrafana 实例 ID，例如：grafana-abcdefgh
- * @method void setInstanceId(string $InstanceId) 设置Grafana 实例 ID，例如：Grafana 实例 ID，例如：grafana-abcdefghGrafana 实例 ID，例如：grafana-abcdefgh
+ * @method string getInstanceId() 获取Grafana 实例 ID，例如：grafana-abcdefgh
+ * @method void setInstanceId(string $InstanceId) 设置Grafana 实例 ID，例如：grafana-abcdefgh
  */
 class DescribeGrafanaEnvironmentsRequest extends AbstractModel
 {
     /**
-     * @var string Grafana 实例 ID，例如：Grafana 实例 ID，例如：grafana-abcdefghGrafana 实例 ID，例如：grafana-abcdefgh
+     * @var string Grafana 实例 ID，例如：grafana-abcdefgh
      */
     public $InstanceId;
 
     /**
-     * @param string $InstanceId Grafana 实例 ID，例如：Grafana 实例 ID，例如：grafana-abcdefghGrafana 实例 ID，例如：grafana-abcdefgh
+     * @param string $InstanceId Grafana 实例 ID，例如：grafana-abcdefgh
      */
     function __construct()
     {
