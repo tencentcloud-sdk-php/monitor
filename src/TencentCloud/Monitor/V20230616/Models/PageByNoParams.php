@@ -18,35 +18,35 @@ namespace TencentCloud\Monitor\V20230616\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * 实例对象的维度组合
+ * 分页请求参数
  *
- * @method string getName() 获取实例维度名称
+ * @method integer getPerPage() 获取每个分页的数量是多少
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setName(string $Name) 设置实例维度名称
+ * @method void setPerPage(integer $PerPage) 设置每个分页的数量是多少
 注意：此字段可能返回 null，表示取不到有效值。
- * @method string getValue() 获取实例维度值
+ * @method string getPageNo() 获取第几个分页，从1开始
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setValue(string $Value) 设置实例维度值
+ * @method void setPageNo(string $PageNo) 设置第几个分页，从1开始
 注意：此字段可能返回 null，表示取不到有效值。
  */
-class Dimension extends AbstractModel
+class PageByNoParams extends AbstractModel
 {
     /**
-     * @var string 实例维度名称
+     * @var integer 每个分页的数量是多少
 注意：此字段可能返回 null，表示取不到有效值。
      */
-    public $Name;
+    public $PerPage;
 
     /**
-     * @var string 实例维度值
+     * @var string 第几个分页，从1开始
 注意：此字段可能返回 null，表示取不到有效值。
      */
-    public $Value;
+    public $PageNo;
 
     /**
-     * @param string $Name 实例维度名称
+     * @param integer $PerPage 每个分页的数量是多少
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param string $Value 实例维度值
+     * @param string $PageNo 第几个分页，从1开始
 注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
@@ -62,12 +62,12 @@ class Dimension extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Name",$param) and $param["Name"] !== null) {
-            $this->Name = $param["Name"];
+        if (array_key_exists("PerPage",$param) and $param["PerPage"] !== null) {
+            $this->PerPage = $param["PerPage"];
         }
 
-        if (array_key_exists("Value",$param) and $param["Value"] !== null) {
-            $this->Value = $param["Value"];
+        if (array_key_exists("PageNo",$param) and $param["PageNo"] !== null) {
+            $this->PageNo = $param["PageNo"];
         }
     }
 }
