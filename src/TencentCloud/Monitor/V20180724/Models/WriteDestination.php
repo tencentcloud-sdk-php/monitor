@@ -18,28 +18,20 @@ namespace TencentCloud\Monitor\V20180724\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribePrometheusScrapeStatistics请求参数结构体
+ * 数据写向目标
  *
- * @method array getInstanceIds() 获取实例ID列表
- * @method void setInstanceIds(array $InstanceIds) 设置实例ID列表
- * @method string getJobType() 获取job 类型
- * @method void setJobType(string $JobType) 设置job 类型
+ * @method string getDestination() 获取存储标识
+ * @method void setDestination(string $Destination) 设置存储标识
  */
-class DescribePrometheusScrapeStatisticsRequest extends AbstractModel
+class WriteDestination extends AbstractModel
 {
     /**
-     * @var array 实例ID列表
+     * @var string 存储标识
      */
-    public $InstanceIds;
+    public $Destination;
 
     /**
-     * @var string job 类型
-     */
-    public $JobType;
-
-    /**
-     * @param array $InstanceIds 实例ID列表
-     * @param string $JobType job 类型
+     * @param string $Destination 存储标识
      */
     function __construct()
     {
@@ -54,12 +46,8 @@ class DescribePrometheusScrapeStatisticsRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("InstanceIds",$param) and $param["InstanceIds"] !== null) {
-            $this->InstanceIds = $param["InstanceIds"];
-        }
-
-        if (array_key_exists("JobType",$param) and $param["JobType"] !== null) {
-            $this->JobType = $param["JobType"];
+        if (array_key_exists("Destination",$param) and $param["Destination"] !== null) {
+            $this->Destination = $param["Destination"];
         }
     }
 }
