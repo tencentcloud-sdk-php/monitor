@@ -20,15 +20,15 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DescribeDNSConfig返回参数结构体
  *
- * @method array getNameServers() 获取DNS 服务器数组
- * @method void setNameServers(array $NameServers) 设置DNS 服务器数组
+ * @method array getNameServers() 获取<p>DNS 服务器数组</p>
+ * @method void setNameServers(array $NameServers) 设置<p>DNS 服务器数组</p>
  * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
 class DescribeDNSConfigResponse extends AbstractModel
 {
     /**
-     * @var array DNS 服务器数组
+     * @var array <p>DNS 服务器数组</p>
      */
     public $NameServers;
 
@@ -38,7 +38,7 @@ class DescribeDNSConfigResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param array $NameServers DNS 服务器数组
+     * @param array $NameServers <p>DNS 服务器数组</p>
      * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
