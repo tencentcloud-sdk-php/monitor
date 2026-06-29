@@ -18,28 +18,16 @@ namespace TencentCloud\Monitor\V20180724\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * Prometheus 通用字符串类型 kv
+ * DescribePrometheusCreateInstanceQuota请求参数结构体
  *
- * @method string getKey() 获取<p>键</p>
- * @method void setKey(string $Key) 设置<p>键</p>
- * @method string getValue() 获取<p>值</p>
- * @method void setValue(string $Value) 设置<p>值</p>
+
  */
-class PrometheusStringKeyValuePair extends AbstractModel
+class DescribePrometheusCreateInstanceQuotaRequest extends AbstractModel
 {
-    /**
-     * @var string <p>键</p>
-     */
-    public $Key;
+
 
     /**
-     * @var string <p>值</p>
-     */
-    public $Value;
 
-    /**
-     * @param string $Key <p>键</p>
-     * @param string $Value <p>值</p>
      */
     function __construct()
     {
@@ -54,12 +42,6 @@ class PrometheusStringKeyValuePair extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Key",$param) and $param["Key"] !== null) {
-            $this->Key = $param["Key"];
-        }
 
-        if (array_key_exists("Value",$param) and $param["Value"] !== null) {
-            $this->Value = $param["Value"];
-        }
     }
 }

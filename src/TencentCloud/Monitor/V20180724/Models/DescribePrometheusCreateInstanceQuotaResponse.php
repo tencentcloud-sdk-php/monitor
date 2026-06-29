@@ -18,26 +18,19 @@ namespace TencentCloud\Monitor\V20180724\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeAlarmPolicies返回参数结构体
+ * DescribePrometheusCreateInstanceQuota返回参数结构体
  *
- * @method integer getTotalCount() 获取<p>策略总数</p>
- * @method void setTotalCount(integer $TotalCount) 设置<p>策略总数</p>
- * @method array getPolicies() 获取<p>策略数组</p>
- * @method void setPolicies(array $Policies) 设置<p>策略数组</p>
+ * @method PrometheusInstanceQuotaDetail getQuotaDetail() 获取<p>prometheus实例创建配额</p>
+ * @method void setQuotaDetail(PrometheusInstanceQuotaDetail $QuotaDetail) 设置<p>prometheus实例创建配额</p>
  * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
-class DescribeAlarmPoliciesResponse extends AbstractModel
+class DescribePrometheusCreateInstanceQuotaResponse extends AbstractModel
 {
     /**
-     * @var integer <p>策略总数</p>
+     * @var PrometheusInstanceQuotaDetail <p>prometheus实例创建配额</p>
      */
-    public $TotalCount;
-
-    /**
-     * @var array <p>策略数组</p>
-     */
-    public $Policies;
+    public $QuotaDetail;
 
     /**
      * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
@@ -45,8 +38,7 @@ class DescribeAlarmPoliciesResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param integer $TotalCount <p>策略总数</p>
-     * @param array $Policies <p>策略数组</p>
+     * @param PrometheusInstanceQuotaDetail $QuotaDetail <p>prometheus实例创建配额</p>
      * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -62,17 +54,9 @@ class DescribeAlarmPoliciesResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("TotalCount",$param) and $param["TotalCount"] !== null) {
-            $this->TotalCount = $param["TotalCount"];
-        }
-
-        if (array_key_exists("Policies",$param) and $param["Policies"] !== null) {
-            $this->Policies = [];
-            foreach ($param["Policies"] as $key => $value){
-                $obj = new AlarmPolicy();
-                $obj->deserialize($value);
-                array_push($this->Policies, $obj);
-            }
+        if (array_key_exists("QuotaDetail",$param) and $param["QuotaDetail"] !== null) {
+            $this->QuotaDetail = new PrometheusInstanceQuotaDetail();
+            $this->QuotaDetail->deserialize($param["QuotaDetail"]);
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
