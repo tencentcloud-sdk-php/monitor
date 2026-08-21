@@ -18,19 +18,19 @@ namespace TencentCloud\Monitor\V20180724\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * CreateGrafanaInstance返回参数结构体
+ * DescribeGrafanaVersions返回参数结构体
  *
- * @method string getInstanceId() 获取<p>实例名</p>
- * @method void setInstanceId(string $InstanceId) 设置<p>实例名</p>
+ * @method array getVersions() 获取可选版本
+ * @method void setVersions(array $Versions) 设置可选版本
  * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
-class CreateGrafanaInstanceResponse extends AbstractModel
+class DescribeGrafanaVersionsResponse extends AbstractModel
 {
     /**
-     * @var string <p>实例名</p>
+     * @var array 可选版本
      */
-    public $InstanceId;
+    public $Versions;
 
     /**
      * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
@@ -38,7 +38,7 @@ class CreateGrafanaInstanceResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param string $InstanceId <p>实例名</p>
+     * @param array $Versions 可选版本
      * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -54,8 +54,13 @@ class CreateGrafanaInstanceResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("InstanceId",$param) and $param["InstanceId"] !== null) {
-            $this->InstanceId = $param["InstanceId"];
+        if (array_key_exists("Versions",$param) and $param["Versions"] !== null) {
+            $this->Versions = [];
+            foreach ($param["Versions"] as $key => $value){
+                $obj = new GrafanaVersion();
+                $obj->deserialize($value);
+                array_push($this->Versions, $obj);
+            }
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
